@@ -1,0 +1,22 @@
+# scheduler.py
+import schedule
+import time
+import requests
+
+def post_to_social_media(content, platform):
+    # Placeholder for actual API calls to post content
+    print(f"Posting to {platform}: {content}")
+
+def schedule_post(content, platform, post_time):
+    schedule.every().day.at(post_time).do(post_to_social_media, content=content, platform=platform)
+
+# Example usage
+content = "Check out our latest property listings!"
+platform = "Twitter"
+post_time = "10:30"
+
+schedule_post(content, platform, post_time)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
